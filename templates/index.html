@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Stock Analyzer</h1>
+    <form action="/stock" method="post">
+        <label for="symbol">Enter Stock Symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Search History</h2>
+    <table border="1">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Ticker</th>
+				<th>Precio</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for search in search_history %}
+				<tr>
+					<td>{{ search[1] }}</td>
+					<td>{{ search[2] }}</td>
+					<td>{{ search[3] }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+    </table>
+</body>
+</html>
