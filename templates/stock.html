@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Stock Analysis for {{ symbol }}</h2>
+    <p>Current Price: {{ current_price }} USD</p>
+    <div>{{ plot_html | safe }}</div>
+</body>
+</html>
